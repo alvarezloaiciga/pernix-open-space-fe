@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: pernix_open_space_fe_development
+
+test:
+  <<: *default
+  database: pernix_open_space_fe_test
+
+production:
+  <<: *default
+  database: pernix_open_space_fe_production
+  username: pernix_open_space_fe
+  password: <%= ENV["PERNIX_OPEN_SPACE_FE_DATABASE_PASSWORD"] %>
