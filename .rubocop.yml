@@ -1,0 +1,52 @@
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+
+inherit_from:
+  - .rubocop-pernix.yml
+
+require:
+  - rubocop-rails
+  - rubocop-thread_safety
+
+Style/Documentation:
+  Exclude:
+    - "app/controllers/**/*"
+    - "app/decorators/**/*"
+    - "app/helpers/**/*"
+    - "app/mailers/**/*"
+    - "app/models/**/*"
+    - "app/serializers/**/*"
+    - "app/policies/**/*"
+    - "app/validators/**/*"
+    - "config/application.rb"
+    - "db/**/*"
+    - "spec/**/*"
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - "spec/**/*"
+
+Style/NumericLiterals:
+  Enabled: false
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+  CheckSymbols: false
+
+# Disabled for models because multi-line lambdas do not work well with AR scopes
+Style/Lambda:
+  Exclude:
+    - "app/models/**/*"
+
+Lint/MissingSuper:
+  Enabled: true
+  Exclude:
+    - "app/services/**/*"
+    - "spec/**/*"
