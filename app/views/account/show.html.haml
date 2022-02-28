@@ -5,6 +5,7 @@
     %b Email
     = @account.email
 
-  %li
-    %b Avatar
-    = image_tag @account.avatar
+  - if @account.avatar.present?
+    %li
+      %b Avatar
+      = image_tag @account.avatar
