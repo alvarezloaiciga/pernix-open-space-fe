@@ -1,15 +1,10 @@
 # frozen_string_literal: true
 
-class User < ApplicationRecord
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :trackable
-
-  has_one_attached :avatar
-
+FactoryBot.define do
+  factory :user do
+    sequence(:email) { |n| "email+#{n}@gmail.com" }
+    password { "password" }
+  end
 end
 
 # == Schema Information
