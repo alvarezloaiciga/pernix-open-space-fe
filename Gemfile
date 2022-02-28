@@ -4,6 +4,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.0"
+gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.1.3"
 gem "devise"
@@ -22,6 +23,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "dotenv-rails"
   gem "rails-controller-testing"
   gem "rspec-rails"
 end

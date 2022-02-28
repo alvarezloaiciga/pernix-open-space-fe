@@ -13,5 +13,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get "account", to: "account#show", as: :account
+  get "account/edit", to: "account#edit", as: :edit_account
+  patch "account", to: "account#update", as: :update_account
+
   root "pages#home"
 end
