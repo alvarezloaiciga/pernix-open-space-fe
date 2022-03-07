@@ -25,8 +25,13 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "dotenv-rails"
   gem "factory_bot_rails"
+end
+
+group :test do
+  gem "capybara"
   gem "rails-controller-testing"
   gem "rspec-rails"
+  gem "selenium-webdriver"
 end
 
 group :development do
