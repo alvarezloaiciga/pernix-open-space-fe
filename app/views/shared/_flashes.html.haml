@@ -1,0 +1,5 @@
+.container
+  - flash.each do |key, value|
+    .mt-2.alert-dismissible.fade.show{ class: flash_class(key) }
+      = value.html_safe
+      %button.btn-close{ "data-bs-dismiss": "alert", "aria-label": "Close" }
