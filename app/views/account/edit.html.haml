@@ -1,3 +1,8 @@
 = form_with model: @account, url: update_account_path do |f|
-  = f.file_field :avatar
+  %div{ data: { controller: "image-field" } }
+    = image_tag "", class: "w-100 mb-1", data: { "image-field-target": "image" }
+    %div
+      .btn.btn-outline-primary.mb-3{ data: { action: "click->image-field#displayFilePicker" } } Select Image
+      .btn.btn-outline-danger.mb-3{ data: { action: "click->image-field#removeImagePreview" } } Remove Image
+      = f.file_field :avatar, class: "d-none", data: { "image-field-target": "input", action: "change->image-field#displayImagePreview" }
   = f.submit "Actualizar", class: "btn btn-primary"
