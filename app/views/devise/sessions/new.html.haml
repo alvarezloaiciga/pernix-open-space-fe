@@ -5,7 +5,10 @@
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
   .mb-2
     = f.label :password, class: "form-label"
-    = f.password_field :password, autocomplete: "current-password", class: "form-control"
+    .input-group{ data: { controller: "password-field" } }
+      = f.password_field :password, autocomplete: "current-password", class: "form-control", data: { "password-field-target": "input" }
+      .btn.btn-outline-secondary.btn-icon{ data: { action: "click->password-field#togglePasswordVisibility" } }
+        .fa.fa-eye{ data: { "password-field-target": "toggleIcon" } }
   - if devise_mapping.rememberable?
     .mb-2.form-check
       = f.check_box :remember_me, class: "form-check-input"
